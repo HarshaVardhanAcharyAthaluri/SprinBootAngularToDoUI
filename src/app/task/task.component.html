@@ -1,0 +1,38 @@
+<input type="text" id="taskId"  #taskId style="width: 200px;margin-top: 20px;margin-left: 20px;"><br/>
+<button type="button" (click)="getTask(taskId.value)" class="btn btn-primary btn-sm" style="margin-left: 20px; margin-top: 10px;">GetTask</button>
+<button type="button" (click)="getallTasks()" class="btn btn-primary btn-sm" style="margin-left:250px;margin-top: 10px;">GetAllTasks</button>
+<div *ngIf="tasks.length">
+<table class="table" style="margin-top:10px;margin-left: 20px;color:#2d0547;font-style: oblique;">
+    <tr >
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Duration</th>
+    </tr>
+    <tr *ngFor="let list of tasks">
+        
+        <td>{{list.taskId}}</td>
+        <td>{{list.taskName}}</td>
+        <td>{{list.description}}</td>
+        <td>{{list.taskDuration}}</td>
+    </tr>
+</table>
+</div>
+<div *ngIf="taskId.value!=0&&!tasks.length">
+<table class="table" style="margin-top:10px;margin-left: 20px;color:#2d0547;font-style: oblique;">
+    <tr >
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Duration</th>
+    </tr>
+    <tr>
+        <td>{{task.taskId}}</td>
+        <td>{{task.taskName}}</td>
+        <td>{{task.description}}</td>
+        <td>{{task.taskDuration}}</td>
+    </tr>
+</table>
+
+</div>
+
