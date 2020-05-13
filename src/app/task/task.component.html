@@ -1,6 +1,29 @@
 <div style="margin-left: 20px;">TaskId<input type="text" id="taskId"  #taskId style="width: 200px;margin-top: 20px;margin-left: 20px;"></div>
 <button type="button" (click)="getTask(taskId.value)" class="btn btn-primary btn-sm" style="margin-left: 20px; margin-top: 10px;">GetTask</button>
-<button type="button" (click)="getallTasks()" class="btn btn-primary btn-sm" style="margin-left:250px;margin-top: 10px;">GetAllTasks</button>
+<button type="button" (click)="getallTasks()" class="btn btn-primary btn-sm" style="margin-left:40px;margin-top: 10px;">GetAllTasks</button>
+<button type="button" (click)="toggle()" id="bt" class="btn btn-primary btn-sm" style="margin-left:40px;margin-top: 10px;">createTask</button>
+<ng-container *ngIf="show">
+    <form  style="margin-left: 20px; margin-top: 10px;" #taskForm="ngForm" (ngSubmit)="creatTask(taskForm.value)">
+        <div >
+            TaskName<input style="margin-left: 25px;margin-bottom: 10px" type="text" name="taskName" ngModel>
+        </div>
+        <div>
+            Description<input style="margin-left: 16px;margin-bottom: 10px" type="text" name="description" ngModel><br/>
+        </div>
+        <div>
+            TaskDuration<input type="text" style="margin-left: 5px; margin-bottom: 10px" name="taskDuration" ngModel><br/>
+        </div>
+        <div>
+            <input style="margin-left: 120px;" type="submit">
+        </div>
+    </form>
+    <div style="margin-left: 20px; margin-top: 10px;width: 145px;" class="alert alert-success"  *ngIf="status">
+        <strong>Task Created</strong>
+    </div>
+      <div style="margin-left: 20px; margin-top: 10px;" class="alert alert-danger" role="alert" *ngIf="error!=undefined">
+       <strong>Unable to Create task {{error}}</strong>
+      </div>
+</ng-container>
 <div *ngIf="tasks.length" style="margin-right: 45px">
 <table class="table" style="margin-top:10px;margin-left: 20px;color:#2d0547;font-style: oblique;">
     <tr style="background: #5b1f82;font-family: serif;color: white;">

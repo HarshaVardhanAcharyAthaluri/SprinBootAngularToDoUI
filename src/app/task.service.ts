@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+
+import { Task } from './task/task.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +14,10 @@ export class TaskService {
   }
 
   getAllTasks(){
-    
     return this.http.get('/alltasks');
+  }
+
+  createtask(task:Task){
+          return this.http.post<Task>('/task', task);
   }
 }
