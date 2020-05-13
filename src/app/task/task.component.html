@@ -1,4 +1,4 @@
-<input type="text" id="taskId"  #taskId style="width: 200px;margin-top: 20px;margin-left: 20px;"><br/>
+<div style="margin-left: 20px;">TaskId<input type="text" id="taskId"  #taskId style="width: 200px;margin-top: 20px;margin-left: 20px;"></div>
 <button type="button" (click)="getTask(taskId.value)" class="btn btn-primary btn-sm" style="margin-left: 20px; margin-top: 10px;">GetTask</button>
 <button type="button" (click)="getallTasks()" class="btn btn-primary btn-sm" style="margin-left:250px;margin-top: 10px;">GetAllTasks</button>
 <div *ngIf="tasks.length" style="margin-right: 45px">
